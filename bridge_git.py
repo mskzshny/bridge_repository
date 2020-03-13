@@ -1,10 +1,8 @@
 # pip3 install GitPython
-
 import git
 import os
 import shutil
 from distutils.dir_util import copy_tree
-#repo = git.Repo.init()
 
 try:
     # コピー元の.gitディレクトリの削除
@@ -37,15 +35,14 @@ shutil.rmtree('./src_repo/.git')
 # ファイルのコピー
 copy_tree('./src_repo/', './dest_repo/')
 
-# os.chdir('./dest_repo/')
-# git commit
+# コピー先へのコミット
 dest_repo.git.add(['.'])
 dest_repo.git.commit('.','-m',src_log)
 
+# コミットコメントの確認
 for item in dest_repo.iter_commits('master', max_count=2):
     print( "dest_repo : {}".format(item.message) )
 
-# origin = dest_repo.create_remote('origin', dest_repo.remotes.origin.url)
-# print( "origin : {}".format(origin) )
+# コピー先へのPUSH
 origin = dest_repo.remote(name='origin')
 origin.push('master')
