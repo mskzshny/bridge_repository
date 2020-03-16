@@ -18,7 +18,7 @@ except FileNotFoundError:
     print('FileNotFoundError')
 
 try:
-    # コピー元の.gitディレクトリの削除
+    # コピー先の.gitディレクトリの削除
     shutil.rmtree('./' + dest_repo_dir)
 except FileNotFoundError:
     print('FileNotFoundError')
