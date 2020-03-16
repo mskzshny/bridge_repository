@@ -4,13 +4,17 @@ import os
 import shutil
 from distutils.dir_util import copy_tree
 
+# コピー元のリポジトリ情報
 src_repo_url = 'git@github.com:mskzshny/ppt_trim.git'
 src_repo_dir = 'src_repo'
 src_repo_commit_log_branch = 'master'
 src_repo_commit_log_count = 2
+
+# コピー先のリポジトリ情報
 dest_repo_url = 'git@github.com:mskzshny/dest_git_repository.git'
 dest_repo_dir = 'dest_repo'
 dest_repo_commit_log_branch = 'master'
+
 try:
     # コピー元の.gitディレクトリの削除
     shutil.rmtree('./' + src_repo_dir)
